@@ -4,3 +4,11 @@
 # te,felicito,que,bien,actuas
 # La salida esperada es:
 # actuas,bien,felicito,que,te
+def procesar_palabras(entrada):
+    palabras = entrada.split(',')
+    palabras.sort()
+    print(','.join(palabras))
+    return palabras
+
+procesar_palabras('te,felicito,que,bien,actuas')
+procesar_palabras('hola, como, andas, ?')

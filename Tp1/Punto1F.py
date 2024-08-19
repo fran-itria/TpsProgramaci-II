@@ -1,8 +1,7 @@
 # Un portal web requiere un formulario de alta de usuario donde se ingrese,
 # mínimamente, un usuario y su correspondiente contraseña. Escriba, en Python,
 # una función contrasena_valida(contrasena) que devuelva True en caso de
-# superar las siguientes validaciones sobre la contraseña proporcionada por el
-# usuario:
+# superar las siguientes validaciones sobre la contraseña proporcionada por el usuario:
 # i. Longitud entre 6 y 20 caracteres.
 # ii. Debe contener al menos un número.
 # iii. Debe contener al menos dos mayúsculas.

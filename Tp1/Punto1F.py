@@ -14,3 +14,24 @@
 # AbC.123 es válida: True
 # AbC.1 23 es válida: False
 # ÁbC.123 es válida: False
+
+
+import re
+
+
+def contrasena_valida(contrasena):
+    if len(contrasena) > 5 and len(contrasena) < 21:
+        if re.search(r"\d", contrasena) and re.search(r"[A-Z].*[A-Z]", contrasena):
+            if re.search(r"[$&+,:;=?@#|<>.^*()%!-]", contrasena):
+                if " " not in contrasena:
+                    return True
+    return False
+
+
+while True:
+    contrasena = input("Ingrese una contraseña válida: ")
+    if contrasena_valida(contrasena):
+        print("Contraseña válida.")
+        break
+    else:
+        print("Contraseña invalida. Vuelva a ingresar una contraseña.")

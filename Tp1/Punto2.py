@@ -14,24 +14,7 @@
 
 import time
 from calendar import isleap
-
-
-# calcular si es un año bisiesto
-def anio_bisiesto(anio):
-    return isleap(anio)
-
-
-# calcular el numero de dias de cada mes
-def calcular_dias_mes(mes, anio_bisiesto):
-    if mes in [1, 3, 5, 7, 8, 10, 12]:
-        return 31
-    elif mes in [4, 6, 9, 11]:
-        return 30
-    elif mes == 2 and anio_bisiesto == True:
-        return 29
-    elif mes == 2 and anio_bisiesto == False:
-        return 28
-
+from funciones import anio_bisiesto, calcular_dias_mes, calcular_equivalente_en_dias, isleap
 
 # ingreso de datos del usuario
 nombre = input("Ingrese su nombre: ")

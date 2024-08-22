@@ -19,6 +19,9 @@ from funciones import anio_bisiesto, calcular_dias_mes, calcular_equivalente_en_
 # ingreso de datos del usuario
 nombre = input("Ingrese su nombre: ")
 edad = input("Ingrese su edad: ")
+while not edad.isnumeric():
+    print("Por favor, ingrese un valor numerico")
+    edad = input("Ingrese su edad: ")
 # seteo inicial de variables
 hora_local = time.localtime(time.time())
 anios = int(edad)

@@ -17,13 +17,13 @@ def numeros_par_impar(entrada):
             lista_impar.append(numero**2)
         else:
             lista_par.append(numero)
-            
-    print('Numeros impares elevados al cuadrado:', lista_impar)
-    print('Numeros pares:', lista_par)
+
+    print('No hay números impares' if len(lista_impar) == 0 else 'Números impares: ' + str(lista_impar))
+    print('No hay números pares' if len(lista_par) == 0 else 'Números pares: ' + str(lista_par))
     
 def validar_entrada(entrada):
     try:
-        lista_numeros = [int(num) for num in entrada.split(',')]
+        [int(num) for num in entrada.split(',')]
         return True
     except ValueError:
         return False

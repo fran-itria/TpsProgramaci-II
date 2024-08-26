@@ -17,7 +17,6 @@
 
 import re
 
-
 def contrasena_valida(contrasena):
     if len(contrasena) > 5 and len(contrasena) < 21:
         if re.search(r"\d", contrasena) and re.search(r"[A-Z].*[A-Z]", contrasena):
@@ -25,7 +24,6 @@ def contrasena_valida(contrasena):
                 if " " not in contrasena:
                     return True
     return False
-
 
 while True:
     contrasena = input("Ingrese una contraseña válida: ")

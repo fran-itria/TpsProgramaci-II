@@ -7,35 +7,33 @@
 # ['c', 'b']
 # ['a', 'e', 'd']
 
-def listas_diferencia(lista1,lista2):
-    
+def listas_diferencia(lista1,lista2):    
     #encuentra los elementos en común en cada lista los almacena en lista vacía 
     elementos_en_comun = []
-    for  xx in lista1:
-        if xx in lista2 and xx not in elementos_en_comun:
-            elementos_en_comun.append(xx)
-    #ordena los elementos encontrados de manera ascendente 
+    for elemento in lista1:
+        if (elemento in lista2) and (elemento not in elementos_en_comun):
+            elementos_en_comun.append(elemento)
+    # ordena alfabeticamente los elementos en común
     elementos_en_comun.sort()
-    #una vez ordenados de manera ascendente ordena los elementos de manera inversa 
+    # ordena los elementos de manera inversa 
     elementos_en_comun.reverse()
     
     #encuentra los elementos diferentes 
     elementos_diferentes =[]
-    
-    for xx in lista1:
-        if xx not in lista2 and xx not in elementos_diferentes:
-            elementos_diferentes.append(xx)
+    for elemento in lista1:
+        if elemento not in elementos_en_comun:
+            elementos_diferentes.append(elemento)
             
-    for xx in lista2:
-        if xx not in lista1 and xx not in elementos_diferentes:
-            elementos_diferentes.append(xx)
+    for elemento in lista2:
+        if elemento not in elementos_en_comun:
+            elementos_diferentes.append(elemento)
     
     elementos_diferentes.sort()
     
 
     print(f"Listas {lista1} {lista2}")
-    print (f"Elementos que comparten Lista 1 y Lista 2 en orden inverso : {elementos_en_comun}")
-    print (f"Elementos que difieren a Lista 1 y Lista 2 en orden alfabético: {elementos_diferentes}")
+    print (f"Elementos que comparten en orden inverso : {elementos_en_comun}")
+    print (f"Elementos que difieren en orden alfabético: {elementos_diferentes}")
 
 lista1 = ['a','b','d','f','h','z','h','k','y','o','v','s','n','w','q','2','4','1']
     

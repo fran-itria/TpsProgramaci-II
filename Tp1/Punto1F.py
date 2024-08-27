@@ -14,9 +14,7 @@
 # AbC.1 23 es válida: False
 # ÁbC.123 es válida: False
 
-
 import re
-
 def contrasena_valida(contrasena):
     if len(contrasena) > 5 and len(contrasena) < 21:
         if re.search(r"\d", contrasena) and re.search(r"[A-Z].*[A-Z]", contrasena):

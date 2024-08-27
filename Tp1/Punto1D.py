@@ -22,21 +22,16 @@ def listas_diferencia(lista1,lista2):
     elementos_diferentes =[]
     for elemento in lista1:
         if elemento not in elementos_en_comun:
-            elementos_diferentes.append(elemento)
-            
+            elementos_diferentes.append(elemento)    
     for elemento in lista2:
         if elemento not in elementos_en_comun:
             elementos_diferentes.append(elemento)
-    
     elementos_diferentes.sort()
     
-
     print(f"Listas {lista1} {lista2}")
     print (f"Elementos que comparten en orden inverso : {elementos_en_comun}")
     print (f"Elementos que difieren en orden alfabético: {elementos_diferentes}")
 
 lista1 = ['a','b','d','f','h','z','h','k','y','o','v','s','n','w','q','2','4','1']
-    
 lista2 = ['j','l','o','p','t','g','d','v','z','c','a','b','u','e','r','w','3','6','4','6','8','1']
-
 listas_diferencia(lista1,lista2)

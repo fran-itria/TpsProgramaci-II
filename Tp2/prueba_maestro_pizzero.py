@@ -1,5 +1,5 @@
 # Importar la clase MaestroPizzero desde el archivo maestro_pizzero.py
-from maestro_pizzero import MaestroPizzero
+from MaestroPizzero import MaestroPizzero
 
 # Crear una instancia de MaestroPizzero
 maestro = MaestroPizzero("Don Pipo")

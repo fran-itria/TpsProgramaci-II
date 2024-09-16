@@ -23,21 +23,22 @@ class MaestroPizzero:
 
     # Punto 1
     def tomarPedido(self, var):
-        if not var: 
-            raise ValueError("La variedad no puede estar vacía")
         nueva_pizza = Pizza(var)
-        self.pizzasPorCocinar.append(nueva_pizza)  
+        print("Se tomó el pedido de Pizza:",nueva_pizza.obtenerVariedad())
+        self.pizzasPorCocinar.append(nueva_pizza.obtenerVariedad())  
 
     # Punto 2
     def cocinar(self):
         if self.pizzasPorCocinar:
             self.pizzasPorEntregar.extend(self.pizzasPorCocinar)
+            print("Están cocidas las Pizzas:",self.pizzasPorCocinar)
             self.pizzasPorCocinar.clear()
 
     # Punto 3
     def entregar(self):
         pizzas_entregadas = self.pizzasPorEntregar[:2] 
         self.pizzasPorEntregar = self.pizzasPorEntregar[2:]
+        print("El maestro pizzero entregó al mozo las Pizzas:", pizzas_entregadas)
         return pizzas_entregadas
 
     # Consultas adicionales

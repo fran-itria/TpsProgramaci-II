@@ -9,7 +9,6 @@
 # atributo pizzas tiene una longitud de entre 0 y 1. Así mismo, debe retornar False 
 # si su tamaño es igual a 2.
 class Mozo:
-
     def __init__(self, nombre):
         self.nombre = nombre
         self.pizzas = []
@@ -26,6 +25,7 @@ class Mozo:
 
     # Punto c 
     def servirPizzas(self):
+        print("El mozo", self.nombre, "entregó las órdenes:", self.pizzas)
         self.pizzas.clear()
     
     def obtenerNombre(self):

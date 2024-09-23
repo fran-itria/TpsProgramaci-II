@@ -11,7 +11,7 @@ iii. ¿Los objetos ligados a mozo1 y mozo2 comparten la misma posición de
 memoria?
 
 i- Los identificadores mozo1 y mozo 2 no hacen referencia al mismo objeto, son objetos distintos
-ya que cada mozo crea una nueva intancia de la clase Mozo
+ya que cada mozo crea una nueva instancia de la clase Mozo
 
 ii- Son objetos equivalentes, que dos objetos sean equivalentes quiere decir que sus estados internos
 coinciden, sin embargo, cada mozo es un objeto distinto con el mismo estado interno.

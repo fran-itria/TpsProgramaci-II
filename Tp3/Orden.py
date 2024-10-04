@@ -5,9 +5,9 @@ class Orden:
     ESTADO_ENTREGADA = 3
     
     # Atributos de instancia
-    def __init__(self, nro, pizzas):
+    def __init__(self, nro):
         self.nroOrden = nro
-        self.pizzas = pizzas
+        self.pizzas = []
         self.estadoOrden = Orden.ESTADO_INICIAL
         
     # Comandos

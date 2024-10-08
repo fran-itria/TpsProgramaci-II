@@ -1,52 +1,49 @@
-# 1. El comando tomarPedido debe crear un nuevo objeto de la clase Pizza,
-# de la variedad indicada en el parámetro formal var. Una vez inicializado
-# dicho objeto, debe este agregarse a la lista referenciada por el atributo
-# pizzasPorCocinar.
-
-# 2. El comando cocinar debe tomar todos los objetos de la clase Pizza de la
-# lista pizzasPorCocinar y depositarlos en una segunda lista,
-# pizzasPorEntregar. Si no hay pizzas por ser cocinadas, el comando no
-# tiene efecto sobre el estado interno del objeto.
-
-# 3. El comando entregar retorna hasta un máximo de 2 objetos de la clase
-# Pizza de la lista pizzasPorEntregar, removiéndolos de ella. Si no hay
-# pizzas para ser entregadas, se debe retornar una lista vacía.
 from Pizza import Pizza
+from Orden import Orden
+
 class MaestroPizzero:
     def __init__(self, nom):
         self.nombre = nom
-        self.pizzasPorCocinar = []
-        self.pizzasPorEntregar = []
-        
+        self.ordenes = [] 
+
     def establecerNombre(self, nom):
         self.nombre = nom
 
-    # Punto 1
-    def tomarPedido(self, var):
-        nueva_pizza = Pizza(var)
-        print("Se tomó el pedido de Pizza:",nueva_pizza.obtenerVariedad())
-        self.pizzasPorCocinar.append(nueva_pizza.obtenerVariedad())  
+    def tomarPedido(self, orden):
+        if not isinstance(orden, Orden):
+            raise ValueError("El pedido debe ser un objeto de la clase Orden")
+        if orden.obtenerEstadoOrden() == Orden.ESTADO_INICIAL:
+            self.ordenes.append(orden)
+            print(f"Pedido tomado para la orden: {orden.obtenerNroOrden()}")
+        else:
+            raise ValueError("La orden no está en el estado inicial")
 
-    # Punto 2
     def cocinar(self):
-        if self.pizzasPorCocinar:
-            self.pizzasPorEntregar.extend(self.pizzasPorCocinar)
-            print("Están cocidas las Pizzas:",self.pizzasPorCocinar)
-            self.pizzasPorCocinar.clear()
+        for orden in self.ordenes:
+            if orden.obtenerEstadoOrden() == Orden.ESTADO_INICIAL:
+                orden.establecerEstadoOrden(Orden.ESTADO_PARA_ENTREGAR)
+                for pizza in orden.obtenerPizzas():
+                    pizza.establecerEstado(Pizza.ESTADO_COCINADA)
+                print(f"Orden {orden.obtenerNroOrden()} cocinada y lista para entregar")
 
-    # Punto 3
-    def entregar(self):
-        pizzas_entregadas = self.pizzasPorEntregar[:2] 
-        self.pizzasPorEntregar = self.pizzasPorEntregar[2:]
-        print("El maestro pizzero entregó al mozo las Pizzas:", pizzas_entregadas)
-        return pizzas_entregadas
+    def entregar(self, orden):
+        if orden.obtenerEstadoOrden() != Orden.ESTADO_PARA_ENTREGAR:
+            raise ValueError("La orden no está lista para ser entregada")
 
-    # Consultas adicionales
+        pizzas_a_entregar = orden.obtenerPizzas()[:2]
+        for pizza in pizzas_a_entregar:
+            pizza.establecerEstado(Pizza.ESTADO_ENTREGADA)
+
+        orden.establecerPizzas(orden.obtenerPizzas()[2:])
+
+        if all(pizza.obtenerEstado() == Pizza.ESTADO_ENTREGADA for pizza in orden.obtenerPizzas()):
+            orden.establecerEstadoOrden(Orden.ESTADO_ENTREGADA)
+            print(f"Orden {orden.obtenerNroOrden()} completamente entregada")
+
+        return pizzas_a_entregar
+
     def obtenerNombre(self):
         return self.nombre
 
-    def obtenerPizzasPorCocinar(self):
-        return self.pizzasPorCocinar
-
-    def obtenerPizzasPorEntregar(self):
-        return self.pizzasPorEntregar
+    def obtenerOrdenes(self):
+        return self.ordenes

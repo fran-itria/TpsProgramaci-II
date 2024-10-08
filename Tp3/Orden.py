@@ -28,5 +28,5 @@ class Orden:
     def calcularTotal(self):
         total = 0
         for pizza in self.pizzas:
-            total += pizza.obtenerPrecio()
+            total += pizza.obtenerVariedad().obtenerPrecio()
         return total

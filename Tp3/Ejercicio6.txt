@@ -1,0 +1,10 @@
+Indique si las siguientes sentencias son Verdaderas o Falsas:
+a. La clase Mozo y la clase MaestroPizzero están asociadas: FALSO
+b. Existe una relación de dependencia entre las clases Mozo y MaestroPizzero: FALSO
+c. La clase Orden es proveedora de la clase MaestroPizzero: VERDADERO
+d. La clase MaestroPizzero es proveedora de la clase Pizza: FALSO
+e. La clase MaestroPizzero es cliente de la clase Pizza: VERDADERO
+f. La clase Pizza y PizzaVariedad están asociadas: VERDADERO
+g. Existe una relación de dependencia entre las clases PizzaVariedad y Pizza: VERDADERO
+h. La clase Mozo y Pizza están asociadas: VERDADERO
+i. Existe una relación de dependencia entre las clases Orden y PizzaVariedad: VERDADERO

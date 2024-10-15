@@ -14,7 +14,6 @@ class MaestroPizzero:
             raise ValueError("El pedido debe ser un objeto de la clase Orden")
         if orden.obtenerEstadoOrden() == Orden.ESTADO_INICIAL:
             self.ordenes.append(orden)
-            print(f"Pedido tomado para la orden: {orden.obtenerNroOrden()}")
         else:
             raise ValueError("La orden no está en el estado inicial")
 
@@ -30,15 +29,16 @@ class MaestroPizzero:
         if orden.obtenerEstadoOrden() != Orden.ESTADO_PARA_ENTREGAR:
             raise ValueError("La orden no está lista para ser entregada")
 
-        pizzas_a_entregar = orden.obtenerPizzas()[:2]
-        for pizza in pizzas_a_entregar:
-            pizza.establecerEstado(Pizza.ESTADO_ENTREGADA)
-
-        orden.establecerPizzas(orden.obtenerPizzas()[2:])
-
+        pizzas_a_entregar = []
+        for pizza in orden.obtenerPizzas():
+                if pizza.obtenerEstado() == Pizza.ESTADO_COCINADA:
+                    pizza.establecerEstado(Pizza.ESTADO_ENTREGADA)
+                    pizzas_a_entregar.append(pizza)
+                if len(pizzas_a_entregar) == 2:
+                    break
+        
         if all(pizza.obtenerEstado() == Pizza.ESTADO_ENTREGADA for pizza in orden.obtenerPizzas()):
             orden.establecerEstadoOrden(Orden.ESTADO_ENTREGADA)
-            print(f"Orden {orden.obtenerNroOrden()} completamente entregada")
 
         return pizzas_a_entregar
 

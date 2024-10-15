@@ -1,13 +1,3 @@
-# a. El atributo pizzas se inicializa como una lista vacía.
-
-# b. El comando tomarPizzas agrega los objetos de la clase Pizza referenciados por 
-# el parámetro formal pizzas. El mozo puede tomar hasta un máximo de 2 pizzas.
-
-# c. servirPizzas limpia la lista pizzas, haciendo entrega de los pedidos a los clientes.
-
-# d. obtenerEstadoLibre debe retornar True si es que la lista referenciada por el 
-# atributo pizzas tiene una longitud de entre 0 y 1. Así mismo, debe retornar False 
-# si su tamaño es igual a 2.
 class Mozo:
     def __init__(self, nombre):
         self.nombre = nombre
@@ -25,7 +15,7 @@ class Mozo:
 
     # Punto c 
     def servirPizzas(self):
-        print("El mozo", self.nombre, "entregó las órdenes:", self.pizzas)
+        print("El mozo", self.nombre, "entregó las órdenes: ", [pizza.obtenerVariedad().obtenerNombre() for pizza in self.pizzas])
         self.pizzas.clear()
     
     def obtenerNombre(self):
